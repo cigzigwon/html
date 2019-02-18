@@ -22,6 +22,7 @@
       }
 
       .card {
+        cursor: pointer;
         background: white;
         height: 300px;
         width: 600px;
@@ -200,6 +201,17 @@
           opacity: 1;
         }
       }
+
+      @media only screen and (max-width: 576px) {
+        .card {
+          left: 100%;
+        }
+
+        #click-me {
+          position: relative;
+          left: 100%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -272,16 +284,18 @@
     const cards = document.getElementsByClassName('card');
     const className = 'card-flip';
 
-    console.log(cards)
-
     aTags.addEventListener('click', event => {
       event.stopPropagation();
     });
 
     for (var card of cards) {
       card.addEventListener('click', event => {
-         document.querySelector('.card-front').classList.toggle(className);
-         document.querySelector('.card-back').classList.toggle(className);
+        document.querySelector('.card-front')
+          .classList
+          .toggle(className);
+        document.querySelector('.card-back')
+          .classList
+          .toggle(className);
       });
     }
   </script>
